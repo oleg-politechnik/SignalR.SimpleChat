@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SignalR.Chat.Models.RoomViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-header">
+    <h2>
+        Index</h2>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(Html.Encode(item.Room.Title), "Enter", new { id = item.Room.RoomId })
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.UserIdRef)*@
+            </td>
+            <td>
+            </td>
+            <td>
+                @*@if (item.isCurrentUserOwner)*@
+                     @Html.ActionLink("Edit", "Edit", new { id = item.Room.RoomId }, new { @class = "btn btn-small" })
+                     @Html.ActionLink("Delete", "Delete", new { id = item.Room.RoomId }, new { @class = "btn btn-small" })
+                
+            </td>
+        </tr>
+    }
+</table>

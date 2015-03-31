@@ -1,0 +1,59 @@
+﻿@model SignalR.Chat.Models.RoomViewModel
+@{
+    ViewBag.Title = "Комната " + Html.DisplayFor(model => model.Room.Title);
+}
+<script type="text/javascript">
+    var RoomId = '@Html.Encode(Model.Room.RoomId)';
+</script>
+<script src="../../Scripts/jquery.signalR-0.5.0.min.js" type="text/javascript"></script>
+<script src="../../signalr/hubs" type="text/javascript"></script>
+<script src="../../Scripts/chat.js" type="text/javascript"></script>
+<div class="page-header">
+    <h1>@Html.DisplayFor(model => model.Room.Title)
+        <small>(Администратор: @Html.DisplayFor(model => model.Owner.Nickname))</small>
+    </h1>
+</div>
+<div class="row">
+    <div class="span12">
+        <div class="well">
+            @Html.ActionLink("К списку комнат", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span8">
+        <div id="chatWindow" class="well" style="min-width: 500px; height: 500px; overflow-y: scroll;">
+            
+            
+            @foreach (var msg in Model.Messages)
+            {
+                 <div class="alert alert-success" style="margin-bottom: 1px;"> [@Html.Encode(msg.Time)] <b>@Html.Encode(msg.User)</b> - @Html.Encode(msg.Text) </div>
+            }
+
+
+        </div>
+    </div>
+    <div class="span4">
+        <div class="well" style="height: 500px;">
+            <ul class="nav nav-list" id="users">
+            @foreach (var userName in Model.OnlineUserList)
+            {
+                 <li><a href="#"> @Html.Encode(userName) </a></li>
+            }
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">
+        <div class="well">
+            <input type="textarea" id="textMessage" class="input-large search-query" />
+            <input type="button" id="SendMessage" value="Send" class="btn btn-success" />
+            @*            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="file" name="file" />
+                <input type="submit" value="OK" />
+            }*@
+        </div>
+    </div>
+</div>

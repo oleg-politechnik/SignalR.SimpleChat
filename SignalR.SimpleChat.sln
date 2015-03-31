@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR.SimpleChat", "SignalR.SimpleChat\SignalR.SimpleChat.csproj", "{8AFF5CE0-B9B7-4CD5-BF90-20D4BCB3D431}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "SignalR.SimpleChat.Azure", "SignalR.SimpleChat.Azure\SignalR.SimpleChat.Azure.ccproj", "{EFB543F4-5954-40B5-945B-C6E550B84076}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AFF5CE0-B9B7-4CD5-BF90-20D4BCB3D431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AFF5CE0-B9B7-4CD5-BF90-20D4BCB3D431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AFF5CE0-B9B7-4CD5-BF90-20D4BCB3D431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AFF5CE0-B9B7-4CD5-BF90-20D4BCB3D431}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFB543F4-5954-40B5-945B-C6E550B84076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB543F4-5954-40B5-945B-C6E550B84076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB543F4-5954-40B5-945B-C6E550B84076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB543F4-5954-40B5-945B-C6E550B84076}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

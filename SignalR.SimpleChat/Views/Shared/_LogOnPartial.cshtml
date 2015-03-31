@@ -1,0 +1,24 @@
+﻿@using SignalR.Chat
+
+@if (Request.IsAuthenticated)
+{
+    <li class="navbar-text">Добро пожаловать, <strong>@Html.ActionLink(User.Identity.Name, "ChangePassword", "Account")</strong>!</li>
+    
+@*    if (Helper.IsRoot())
+    { <text>(Админ)</text> }
+    *@<li>
+      @Html.ActionLink("Выйти", "LogOff", "Account", new { returnUrl = Url.Encode(Request.Url.PathAndQuery) }, null)
+    </li>
+}
+else
+{
+    if ((ViewContext.RouteData.Values["controller"].ToString().ToLower() == "account") &&
+        (ViewContext.RouteData.Values["action"].ToString().ToLower() == "logon"))
+    {
+    @:[ @Html.ActionLink("Войти", "LogOn", "Account") ]
+    }
+    else
+    {
+    @:[ @Html.ActionLink("Войти", "LogOn", "Account", new { returnUrl = Url.Encode(Request.Url.PathAndQuery) }, null) ]    
+    }
+} 

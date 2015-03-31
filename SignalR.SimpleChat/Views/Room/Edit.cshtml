@@ -1,0 +1,27 @@
+﻿@model SignalR.Chat.Models.Room
+@{
+    ViewBag.Title = "Править";
+}
+<h2>
+    Править</h2>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<!--TODO: Add class for form-->
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        @Html.HiddenFor(model => model.RoomId)
+        @Html.HiddenFor(model => model.OwnerId)
+    <div class="control-group">
+        @Html.LabelFor(model => model.Title)
+        <div class="controls">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+    </div>
+        <div class="form-actions">
+            <button type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </fieldset>
+}
